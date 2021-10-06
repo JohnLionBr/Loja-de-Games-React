@@ -1,3 +1,7 @@
+#App ecommerce(Loja de games)
+O app foi criado durante um desafio proposto. Não está finalizado (06/10/2021). Não tive muito tempo para desenvolver o app por estar na semana de provas da faculdade, será finalizado em breve.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
