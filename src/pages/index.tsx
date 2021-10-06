@@ -2,20 +2,16 @@ import Layout from "../components/Layout";
 import Tabela from "../components/Tabela";
 import Cliente from "../core/Cliente";
 import Botao from "../components/Botao";
-import Formulario from "../components/Formulario";
+
 import { useState } from "react";
 import { IconeCarrinho } from "../components/icones";
+import Formulario1 from "../components/Formulario1";
 
 export default function Home() {
-  const [cliente, setCliente] = useState<Cliente>(Cliente.vazio())
+  const [setCliente] = useState<Cliente>(Cliente.vazio())
   const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
 
-  /*const clientes = [
-    new Cliente(`Ana`, 34, `1`),
-    new Cliente(`Carlos`, 23, `2`),
-    new Cliente(`Pedro`, 45, `3`),
-    new Cliente(`Lia`, 19, `4`),
-  ] */
+
 
   const clientes = [
     {
@@ -83,24 +79,25 @@ export default function Home() {
     }
   ]
 
-  function clienteSelecionado(cliente: Cliente){
-    setCliente(cliente)
+  function clienteSelecionado(_cliente: Cliente){
+    
     setVisivel('form')
+    
 
 
   }
 
-  function clienteExcluido(cliente: Cliente){
+  function clienteExcluido(_cliente: Cliente){
 
 
   }
 
     function novoCliente() {
-      setCliente(Cliente.vazio())
+      
       setVisivel('form')
     }
   
-  function salvarCLiente(cliente: Cliente){
+  function salvarCLiente(_cliente: Cliente){
     setVisivel('tabela')
 
   }
@@ -109,7 +106,7 @@ export default function Home() {
 
 
   return (
-    <div className={`
+    <div  className={`
     flex justify-center items-center
     bg-gradient-to-r from-gray-900 to-blue-900
     text-white
@@ -126,16 +123,16 @@ export default function Home() {
        </div>
        <Tabela clientes={clientes}
          clienteSelecionado={clienteSelecionado}
-         clienteExcluido={clienteExcluido}
+         
          />
 
        </>
 
        ) :(
      
-       <Formulario cliente={cliente}
-       clienteMudou={salvarCLiente}
-       cancelado={() => setVisivel('tabela')}
+       <Formulario1
+       cancelado={() => setVisivel('tabela')
+      }
        /> 
        )}
      </Layout>

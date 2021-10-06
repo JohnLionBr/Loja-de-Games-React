@@ -1,11 +1,14 @@
 import Cliente from "../core/Cliente";
-import { IconeAdicionar, IconeRemover,} from "./icones";
+import { IconeAdicionar, IconeCarrinho, IconeRemover,} from "./icones";
+
+import { useState } from "react";
 
 
 
 export default function Tabela(props){
 
-    const exibirAcoes = props.clienteExcluido || props.clienteSelecionado
+    const exibirAcoes = props.clienteSelecionado
+    
 
 
     function renderizarCabecalho() {
@@ -16,7 +19,7 @@ export default function Tabela(props){
                 <th className="text-left p-4">Preço</th>
                 <th className="text-left p-4">Score</th>
                 <th className="text-left p-4">Jogo</th>
-                {exibirAcoes ? <th className=" p-4"></th> :  false }
+                <th className=" p-4"></th>
             </tr>
         )
     }
@@ -48,18 +51,10 @@ export default function Tabela(props){
                 text-green-600 rounded-full hover:bg-purple-200
                 p-2 m-1 
                 `}>
-                    {IconeAdicionar}
+                    Disponível no estoque: {IconeCarrinho}
                 </button>
             ) : false}
-                {props.clienteExcluido ? (
-                 <button onClick={() => props.clienteExcluido?.(cliente)} className={`
-                flex justify-center items-center
-                text-red-600 rounded-full hover:bg-purple-50
-                p-2 m-1
-                `}>
-                    {IconeRemover}
-                </button>
-                ) : false}
+               
                
             </td>
         )
